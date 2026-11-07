@@ -80,7 +80,7 @@ class YOLOProcessor:
         return Image.frombytes('RGB', (msg.width, msg.height), msg.height)
 
 if __name__ == '__main__':
-    rospy.init_node('/yolo_semantic_processor')
+    rospy.init_node('yolo_semantic_processor')
     node = YOLOProcessor('./src/static_assets/yolo26n-sem.pt')
 
     while not rospy.is_shutdown():
