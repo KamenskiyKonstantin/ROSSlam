@@ -77,7 +77,7 @@ class YOLOProcessor:
         rospy.loginfo('YOLO NODE: REPORTED')
 
     def convert_to_pil(self, msg):
-        return Image.frombytes('RGB', (msg.width, msg.height), msg.height)
+        return Image.frombytes('RGB', (msg.width, msg.height), msg.data)
 
 if __name__ == '__main__':
     rospy.init_node('yolo_semantic_processor')
