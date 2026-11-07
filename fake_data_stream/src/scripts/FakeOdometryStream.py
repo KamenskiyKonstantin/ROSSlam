@@ -12,7 +12,7 @@ class MockOdometryNode:
                                      pose=PoseWithCovariance(
                                          pose=Pose(
                                              position=Point(0, 0, 0),
-                                             orientation=Quaternion(0, 0, 0, 0)),
+                                             orientation=Quaternion(0, 0, 0, 1)),
                                          covariance=cov_matrix.copy()),
                                      twist=TwistWithCovariance(
                                          twist=Twist(Vector3(0, 0, 0), Vector3(0, 0, 0)),
