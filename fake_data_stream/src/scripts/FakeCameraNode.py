@@ -5,6 +5,7 @@ import math
 import rospy
 from sensor_msgs.msg import CameraInfo,Image as ROSImage
 from std_msgs.msg import Header
+import cv2
 from cv_bridge import CvBridge
 import numpy as np
 from PIL import Image
