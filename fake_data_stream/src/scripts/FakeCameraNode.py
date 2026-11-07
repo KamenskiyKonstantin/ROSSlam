@@ -44,7 +44,7 @@ class MockCameraStream:
 
         self._rgb_pub.publish(self.RGB_MESSAGE)
         self._ci_pub.publish(self.CI_MESSAGE)
-        self._depth_pub.publish(self.CI_MESSAGE)
+        self._depth_pub.publish(self.DEPTH_MESSAGE)
 
 if __name__ == '__main__':
     rospy.init_node('fake_camera_node')
