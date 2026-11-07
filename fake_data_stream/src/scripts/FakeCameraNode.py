@@ -46,7 +46,7 @@ class MockCameraStream:
         self._depth_pub.publish(self.CI_MESSAGE)
 
 if __name__ == '__main__':
-    rospy.init_node('/fake_camera_node')
+    rospy.init_node('fake_camera_node')
     rate = rospy.Rate(50)
     node = MockCameraStream()
     rospy.sleep(1)

@@ -26,7 +26,7 @@ class MockOdometryNode:
 
 
 if __name__ == '__main__':
-    rospy.init_node('/fake_odometry_stream')
+    rospy.init_node('fake_odometry_stream')
     rate = rospy.Rate(100)
     node = MockOdometryNode()
     rospy.sleep(1)
