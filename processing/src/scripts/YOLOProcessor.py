@@ -63,7 +63,7 @@ class YOLOProcessor:
         result = Image.new('RGB', image.size, (0, 0, 0))
         result_pixels = result.load()
         grayscale_pixels = ImageOps.grayscale(image).load()
-        mask_pixels = Image.fromarray(semantic_tensor.semantic_mask.cpu().numpy()).load()
+        mask_pixels = Image.fromarray(semantic_tensor.semantic_mask.data.cpu().numpy()).load()
         for i in range(result.width):
             for j in range(result.height):
                 color = COLOR_MAP[mask_pixels[i, j]]

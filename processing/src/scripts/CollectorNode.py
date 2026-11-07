@@ -54,39 +54,41 @@ class CollectorNode:
         self.depth = None
         self.odom = None
         self.yolo_result = None
-        self.yolo_busy = False #??
+#        self.yolo_busy = False #??
     def handle_odom(self, msg):
         if self.odom is None:
             self.odom = msg
-        else:
-            rospy.loginfo('Received Odometry when already had one, dropping message')
+#        else:
+#            rospy.loginfo('Received Odometry when already had one, dropping message')
     def handle_depth(self, msg):
         if self.depth is None:
             self.depth = msg
-        else:
-            rospy.loginfo('Received Depth map message when already had one, dropping message')
+ #       else:
+ #           rospy.loginfo('Received Depth map message when already had one, dropping message')
     def handle_ci(self, msg):
         if self.ci is None:
             self.ci = msg
-        else:
-            rospy.loginfo('Received Camera Info when already had one, dropping message')
+  #      else:
+  #          rospy.loginfo('Received Camera Info when already had one, dropping message')
     def handle_yolo(self, msg):
         if self.yolo_result is None:
             self.yolo_result = msg
             self.yolo_busy = False
-        else:
-            rospy.loginfo('Received YOLO result when already had one, dropping message')
+   #     else:
+   #         rospy.loginfo('Received YOLO result when already had one, dropping message')
     def handle_image(self, msg):
         if not self.yolo_busy:
+            rospy.loginfo("Handing of to YOLO")
             self._yolo_pub.publish(msg)
             self.yolo_busy = True
-        else:
-            rospy.loginfo('Received camera image, YOLO is busy, dropping message')
+    #    else:
+    #        rospy.loginfo('Received camera image, YOLO is busy, dropping message')
 
 if __name__ == '__main__':
     rospy.init_node('Collector')
     node = CollectorNode()
     rate = rospy.Rate(10)
+    rospy.sleep(1)
     while not rospy.is_shutdown():
         rate.sleep()
         node.submit()
