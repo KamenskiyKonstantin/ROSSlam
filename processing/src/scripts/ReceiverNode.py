@@ -26,5 +26,11 @@ class Receiver:
     def resolve(self, color):
         return COLOR_MAP.find_class_by_color(color)
 
+if __name__ == '__main__':
+    rospy.init_node('cloud_map_receiver')
+    node = Receiver()
+    while not rospy.is_shutdown():
+        pass
+
 
 
